@@ -1,14 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://0qtohd5esww0"]
+[gd_scene load_steps=4 format=3 uid="uid://0qtohd5esww0"]
 
 [ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="1_yswu8"]
+[ext_resource type="PackedScene" uid="uid://djng5061m3yjr" path="res://scenes/box.tscn" id="2_kr334"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hkre5"]
 
 [node name="Game" type="Node"]
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_yswu8")]
-position = Vector2(403, 327)
-collision_mask = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(408, 429)
@@ -16,3 +13,14 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_hkre5")
+
+[node name="Player" parent="." instance=ExtResource("1_yswu8")]
+position = Vector2(367, 360)
+
+[node name="Box" parent="." instance=ExtResource("2_kr334")]
+position = Vector2(448, 368)
+
+[node name="CollisionShape2D" parent="Box" index="0"]
+scale = Vector2(2, 2)
+
+[editable path="Box"]

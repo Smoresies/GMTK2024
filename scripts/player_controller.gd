@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 225.0
 const JUMP_VELOCITY = -300.0
+const PUSH_FORCE = 10
+const MAX_PUSH_VELOCITY = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,5 +26,15 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	for i in get_slide_collision_count():
+		
+		var collision = get_slide_collision(i) # Used to get collider, and then used to apply push
+		var collision_obj = collision.get_collider() # Used to check to see if push is valid
+		
+		# Check if object is Movable, and is not above the maximum pushing velocity
+		#HACK Pushing Velocity current applied via const from this class
+		if collision_obj.is_in_group("Movable") and abs(collision_obj.get_linear_velocity().x) < MAX_PUSH_VELOCITY:
+			collision_obj.apply_central_impulse(collision.get_normal() * - PUSH_FORCE)
 
 	move_and_slide()
