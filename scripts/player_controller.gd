@@ -9,6 +9,9 @@ const MIN_PUSH_FORCE = 10
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	set_meta("Player", self)
+
 
 func _physics_process(delta):
 	# Add the gravity.
