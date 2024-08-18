@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="Gmtk 2024"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/training_level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 

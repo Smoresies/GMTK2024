@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://517s6wrny5hu"]
+
+[ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="1_xy6js"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_423y0"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_x3fva"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ruocm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bcas1"]
+
+[sub_resource type="Resource" id="Resource_hf2bs"]
+script = ExtResource("3_x3fva")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="TrainingLevel" type="Node"]
+
+[node name="World Boundaries" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(101, 649)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_bcas1")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(99, 2)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_bcas1")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(0, 602)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_bcas1")
+
+[node name="Player" parent="." instance=ExtResource("1_xy6js")]
+position = Vector2(314, 618)
+collision_mask = 3
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(384, 434)
+script = ExtResource("2_423y0")
+follow_mode = 5
+follow_target = NodePath("../Player")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_hf2bs")
+follow_damping = true
+follow_damping_value = Vector2(0.3, 0.3)
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+limit_left = 0
+limit_top = 0
+limit_bottom = 650
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(384, 434)
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_bottom = 650
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("4_ruocm")
