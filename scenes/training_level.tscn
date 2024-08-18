@@ -66,6 +66,7 @@ dead_zone_width = 0.4
 dead_zone_height = 0.4
 limit_left = 0
 limit_top = 0
+limit_right = 2300
 limit_bottom = 650
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -73,6 +74,7 @@ position = Vector2(384, 434)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 0
+limit_right = 2300
 limit_bottom = 650
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]

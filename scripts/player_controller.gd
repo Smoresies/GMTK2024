@@ -8,12 +8,14 @@ const MIN_PUSH_FORCE = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var checkpoint: Vector2
 
 
 @onready var coyote_timer = %CoyoteTimer
 
 func _ready():
 	set_meta("Player", self)
+	checkpoint = position
 
 
 func _physics_process(delta):
@@ -51,3 +53,11 @@ func _physics_process(delta):
 	
 	if was_on_floor and !is_on_floor():
 		coyote_timer.start()
+
+func _input(event):
+	if event.is_action_pressed("restart"):
+		goToCheckpoint()
+		#TODO Set this to an animation controller, have the player go back AFTER they have done animation
+
+func goToCheckpoint():
+	position = checkpoint
