@@ -9,17 +9,21 @@ const MIN_PUSH_FORCE = 10
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+
+@onready var coyote_timer = %CoyoteTimer
+
 func _ready():
 	set_meta("Player", self)
 
 
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()) :
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -42,4 +46,8 @@ func _physics_process(delta):
 			var push_force = (PUSH_FORCE * velocity.length() / SPEED) + MIN_PUSH_FORCE
 			collision_obj.apply_central_impulse(collision.get_normal() * -push_force)
 
+	var was_on_floor: bool = is_on_floor()
 	move_and_slide()
+	
+	if was_on_floor and !is_on_floor():
+		coyote_timer.start()

@@ -17,12 +17,10 @@ shape = SubResource("WorldBoundaryShape2D_hkre5")
 
 [node name="Player" parent="." instance=ExtResource("1_yswu8")]
 position = Vector2(367, 360)
-collision_mask = 3
 
 [node name="Box" parent="." instance=ExtResource("2_kr334")]
 position = Vector2(448, 368)
 mass = 1.2
-lock_rotation = true
 
 [node name="CollisionShape2D" parent="Box" index="0"]
 scale = Vector2(2, 2)

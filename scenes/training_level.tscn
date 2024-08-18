@@ -1,19 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://517s6wrny5hu"]
+[gd_scene load_steps=11 format=3 uid="uid://517s6wrny5hu"]
 
+[ext_resource type="Script" path="res://scripts/game_manager_training.gd" id="1_duivj"]
 [ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="1_xy6js"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_423y0"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_x3fva"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ruocm"]
+[ext_resource type="PackedScene" uid="uid://djng5061m3yjr" path="res://scenes/box.tscn" id="6_psomh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bcas1"]
 
 [sub_resource type="Resource" id="Resource_hf2bs"]
 script = ExtResource("3_x3fva")
+duration = 3.0
+transition = 2
+ease = 0
+
+[sub_resource type="Resource" id="Resource_cri3v"]
+script = ExtResource("3_x3fva")
 duration = 1.0
 transition = 0
 ease = 2
 
-[node name="TrainingLevel" type="Node"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w83bd"]
+
+[node name="TrainingLevel" type="Node" node_paths=PackedStringArray("startingCamera")]
+script = ExtResource("1_duivj")
+startingCamera = NodePath("StartingCam")
 
 [node name="World Boundaries" type="Node" parent="."]
 
@@ -38,20 +50,20 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_bcas1")
 
 [node name="Player" parent="." instance=ExtResource("1_xy6js")]
-position = Vector2(314, 618)
-collision_mask = 3
+position = Vector2(269, 586)
 
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+[node name="PlayerCam" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(384, 434)
 script = ExtResource("2_423y0")
+priority = 1
 follow_mode = 5
 follow_target = NodePath("../Player")
 zoom = Vector2(1.5, 1.5)
 tween_resource = SubResource("Resource_hf2bs")
 follow_damping = true
-follow_damping_value = Vector2(0.3, 0.3)
-dead_zone_width = 0.5
-dead_zone_height = 0.5
+follow_damping_value = Vector2(0.2, 0.2)
+dead_zone_width = 0.4
+dead_zone_height = 0.4
 limit_left = 0
 limit_top = 0
 limit_bottom = 650
@@ -65,3 +77,125 @@ limit_bottom = 650
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("4_ruocm")
+
+[node name="StartingCam" type="Node2D" parent="."]
+position = Vector2(1152, 2)
+script = ExtResource("2_423y0")
+zoom = Vector2(0.5, 0.5)
+tween_resource = SubResource("Resource_cri3v")
+limit_left = 0
+limit_top = -1000000
+limit_bottom = 650
+
+[node name="Boxes" type="Node" parent="."]
+
+[node name="Box" parent="Boxes" instance=ExtResource("6_psomh")]
+position = Vector2(1198, 625)
+mass = 1.2
+
+[node name="CollisionShape2D" parent="Boxes/Box" index="0"]
+position = Vector2(1, 1)
+scale = Vector2(4, 2.25)
+
+[node name="Box2" parent="Boxes" instance=ExtResource("6_psomh")]
+position = Vector2(1573, 622)
+mass = 1.2
+
+[node name="CollisionShape2D" parent="Boxes/Box2" index="0"]
+position = Vector2(0, -1)
+scale = Vector2(2.25, 2.25)
+
+[node name="Box3" parent="Boxes" instance=ExtResource("6_psomh")]
+position = Vector2(1721, 605)
+mass = 1.2
+
+[node name="CollisionShape2D" parent="Boxes/Box3" index="0"]
+position = Vector2(-1, 0)
+scale = Vector2(2.25, 4)
+
+[node name="Box4" parent="Boxes" instance=ExtResource("6_psomh")]
+position = Vector2(1868, 584)
+mass = 1.2
+
+[node name="CollisionShape2D" parent="Boxes/Box4" index="0"]
+position = Vector2(-2, 1)
+scale = Vector2(2.25, 6)
+
+[node name="Box5" parent="Boxes" instance=ExtResource("6_psomh")]
+position = Vector2(2002, 568)
+mass = 1.2
+
+[node name="CollisionShape2D" parent="Boxes/Box5" index="0"]
+position = Vector2(-2, 1)
+scale = Vector2(3, 8)
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment"]
+position = Vector2(797, 625)
+scale = Vector2(2.25, 2.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Environment"]
+position = Vector2(887, 625)
+scale = Vector2(2.25, 2.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Environment"]
+position = Vector2(1084, 625)
+scale = Vector2(2.25, 2.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Environment"]
+position = Vector2(1128, 638)
+scale = Vector2(2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D7"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Environment"]
+position = Vector2(1458, 638)
+scale = Vector2(2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D8"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Environment"]
+position = Vector2(842, 603)
+scale = Vector2(2.25, 4.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Environment"]
+position = Vector2(1416, 610)
+scale = Vector2(2.25, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D6"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Environment"]
+position = Vector2(1038, 603)
+scale = Vector2(2.25, 4.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Environment"]
+position = Vector2(2251, 548)
+scale = Vector2(5, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D9"]
+shape = SubResource("RectangleShape2D_w83bd")
+
+[editable path="Boxes/Box"]
+[editable path="Boxes/Box2"]
+[editable path="Boxes/Box3"]
+[editable path="Boxes/Box4"]
+[editable path="Boxes/Box5"]
