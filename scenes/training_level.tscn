@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://517s6wrny5hu"]
+[gd_scene load_steps=12 format=3 uid="uid://517s6wrny5hu"]
 
 [ext_resource type="Script" path="res://scripts/game_manager_training.gd" id="1_duivj"]
 [ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="1_xy6js"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_x3fva"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ruocm"]
 [ext_resource type="PackedScene" uid="uid://djng5061m3yjr" path="res://scenes/box.tscn" id="6_psomh"]
+[ext_resource type="PackedScene" uid="uid://2x162fr5h5a4" path="res://scenes/checkpoint.tscn" id="7_qr3hh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bcas1"]
 
@@ -47,6 +48,13 @@ position = Vector2(0, 602)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_bcas1")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(2306, 540)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D4"]
 shape = SubResource("WorldBoundaryShape2D_bcas1")
 
 [node name="Player" parent="." instance=ExtResource("1_xy6js")]
@@ -195,6 +203,9 @@ scale = Vector2(5, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D9"]
 shape = SubResource("RectangleShape2D_w83bd")
+
+[node name="Checkpoint" parent="." instance=ExtResource("7_qr3hh")]
+position = Vector2(1415, 555)
 
 [editable path="Boxes/Box"]
 [editable path="Boxes/Box2"]
