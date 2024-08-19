@@ -24,7 +24,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		print(animated_sprite_2d.animation)
+		#print(animated_sprite_2d.animation)
 		if !animated_sprite_2d.is_playing() and animated_sprite_2d.animation != "midair":
 			animated_sprite_2d.play(("midair"))
 
@@ -61,6 +61,8 @@ func _physics_process(delta):
 			# Check if object is Movable, and is not above the maximum pushing velocity
 			#HACK Pushing Velocity current applied via const from this class
 			if collision_obj.is_in_group("Movable") and abs(collision_obj.get_linear_velocity().x) < SPEED * 0.75:
+				#if animated_sprite_2d.animation != "push":
+					#animated_sprite_2d.play("push")
 				var push_force = (PUSH_FORCE * velocity.length() / SPEED) + MIN_PUSH_FORCE
 				collision_obj.apply_central_impulse(collision.get_normal() * -push_force)
 
