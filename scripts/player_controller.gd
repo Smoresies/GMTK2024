@@ -28,10 +28,7 @@ func _physics_process(delta):
 		if !animated_sprite_2d.is_playing() and animated_sprite_2d.animation != "midair":
 			animated_sprite_2d.play(("midair"))
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()) :
-		velocity.y = JUMP_VELOCITY
-		animated_sprite_2d.play("jump_start")
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -42,11 +39,17 @@ func _physics_process(delta):
 			animated_sprite_2d.flip_h = false
 		elif direction < 0 and !animated_sprite_2d.flip_h:
 			animated_sprite_2d.flip_h = true
-		animated_sprite_2d.play("walk")
+		if is_on_floor() and animated_sprite_2d.animation != "walk":
+			animated_sprite_2d.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if animated_sprite_2d.animation == "walk" or !animated_sprite_2d.is_playing():
 			animated_sprite_2d.play("idle")
+	
+	# Handle jump.
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()) :
+		velocity.y = JUMP_VELOCITY
+		animated_sprite_2d.play("jump_start")
 	
 	# Pushing crates
 	for i in get_slide_collision_count():

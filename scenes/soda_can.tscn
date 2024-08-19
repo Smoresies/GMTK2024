@@ -51,14 +51,14 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_5gll5")
 
 [node name="Player" parent="." instance=ExtResource("1_8ivvu")]
-position = Vector2(269, 586)
+position = Vector2(101, 601)
 
 [node name="PlayerCam" type="Node2D" parent="."]
 position = Vector2(384, 434)
 script = ExtResource("2_c786m")
 priority = 1
 follow_mode = 5
-zoom = Vector2(1.75, 2)
+zoom = Vector2(1.75, 1.75)
 tween_resource = SubResource("Resource_eb45i")
 follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
@@ -70,7 +70,7 @@ limit_bottom = 650
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(384, 434)
-zoom = Vector2(1.75, 2)
+zoom = Vector2(1.75, 1.75)
 limit_left = 0
 limit_top = 0
 limit_right = 2300

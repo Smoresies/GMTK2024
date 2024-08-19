@@ -65,7 +65,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump_start",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -144,6 +144,7 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.018, 0.018)
 sprite_frames = SubResource("SpriteFrames_otvcs")
-animation = &"walk"
+animation = &"jump_start"
 autoplay = "idle"
-frame_progress = 0.260687
+frame = 4
+frame_progress = 1.0
