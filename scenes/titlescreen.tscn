@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://c388gpdtgchlq"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ic2f5"]
+[ext_resource type="Script" path="res://scripts/menu_buttons.gd" id="1_sq4s6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 288.0
+offset_top = 27.0
+offset_right = -288.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ic2f5")
+
+[node name="Start Button" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+horizontal_alignment = 1
+script = ExtResource("1_sq4s6")
+type = 1
+
+[node name="Credits Button" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits"
+horizontal_alignment = 1
+script = ExtResource("1_sq4s6")
+type = 2
+
+[node name="Quit Button" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+horizontal_alignment = 1
+script = ExtResource("1_sq4s6")
+type = 3
