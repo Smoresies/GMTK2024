@@ -71,18 +71,16 @@ tween_resource = SubResource("Resource_hf2bs")
 follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
 dead_zone_width = 0.4
-dead_zone_height = 0.4
 limit_left = 0
 limit_top = 0
 limit_right = 2300
 limit_bottom = 650
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(384, 434)
-zoom = Vector2(1.5, 1.5)
+position = Vector2(1152, 2)
+zoom = Vector2(0.5, 0.5)
 limit_left = 0
-limit_top = 0
-limit_right = 2300
+limit_top = -1000000
 limit_bottom = 650
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -91,6 +89,7 @@ script = ExtResource("4_ruocm")
 [node name="StartingCam" type="Node2D" parent="."]
 position = Vector2(1152, 2)
 script = ExtResource("2_423y0")
+priority = 99
 zoom = Vector2(0.5, 0.5)
 tween_resource = SubResource("Resource_cri3v")
 limit_left = 0

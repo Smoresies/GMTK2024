@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://brw58yhgv2mib"]
+
+[ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="1_8ivvu"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_c786m"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_5l58j"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_tcb8x"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5gll5"]
+
+[sub_resource type="Resource" id="Resource_eb45i"]
+script = ExtResource("3_5l58j")
+duration = 3.0
+transition = 2
+ease = 0
+
+[sub_resource type="Resource" id="Resource_oo6le"]
+script = ExtResource("3_5l58j")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="SodaCan" type="Node"]
+
+[node name="World Boundaries" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(101, 649)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_5gll5")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(99, 2)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_5gll5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(0, 602)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_5gll5")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(2306, 540)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_5gll5")
+
+[node name="Player" parent="." instance=ExtResource("1_8ivvu")]
+position = Vector2(269, 586)
+
+[node name="PlayerCam" type="Node2D" parent="."]
+position = Vector2(384, 434)
+script = ExtResource("2_c786m")
+priority = 1
+follow_mode = 5
+zoom = Vector2(1.75, 2)
+tween_resource = SubResource("Resource_eb45i")
+follow_damping = true
+follow_damping_value = Vector2(0.2, 0.2)
+dead_zone_width = 0.4
+limit_left = 0
+limit_top = 0
+limit_right = 2300
+limit_bottom = 650
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(384, 434)
+zoom = Vector2(1.75, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 2300
+limit_bottom = 650
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("4_tcb8x")
+
+[node name="StartingCam" type="Node2D" parent="."]
+position = Vector2(1152, 2)
+script = ExtResource("2_c786m")
+zoom = Vector2(0.5, 0.5)
+tween_resource = SubResource("Resource_oo6le")
+limit_left = 0
+limit_top = -1000000
+limit_bottom = 650
