@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cudbvq8a82xrr"]
 
-[ext_resource type="AudioStream" uid="uid://d2cstdx0p6d1l" path="res://sounds/A Devious Idea.ogg" id="1_qwrun"]
+[ext_resource type="AudioStream" uid="uid://bn33lnjdumty5" path="res://sounds/A Devious Idea.ogg" id="1_qwrun"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="2_q5arg"]
-[ext_resource type="AudioStream" uid="uid://bjm3oh5sy3x1a" path="res://sounds/More and More Mischief.ogg" id="3_i8kdi"]
-[ext_resource type="AudioStream" uid="uid://j0r0bdhskf6k" path="res://sounds/Cooking Up Trouble.ogg" id="4_tqw7q"]
+[ext_resource type="AudioStream" uid="uid://cj0r7fs8fav0c" path="res://sounds/More and More Mischief.ogg" id="3_i8kdi"]
+[ext_resource type="AudioStream" uid="uid://b4ouil67id6h4" path="res://sounds/Cooking Up Trouble.ogg" id="4_tqw7q"]
 
 [node name="Hub" type="Node2D"]
 script = ExtResource("2_q5arg")

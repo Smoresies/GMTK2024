@@ -86,7 +86,10 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("restart") and !paused:
+		pause(1)
+		self.visible = false
 		goToCheckpoint()
+		self.visible = true
 		#TODO Set this to an animation controller, have the player go back AFTER they have done animation
 
 func goToCheckpoint():
@@ -102,17 +105,24 @@ func leave(theme: int):
 		
 		animated_sprite_2d.play("walk")
 		
-		await shrink()
+		await shrink(1.5)
 		
 		if (theme != 0):
 			AudioManager.change_tune(theme)
 		
 		get_tree().change_scene_to_file("res://scenes/soda_can.tscn")
 
-func shrink():
+func shrink(end_time: int):
 	var grow_time = 0
-	while (grow_time < 2):
-		await get_tree().create_timer(0.1).timeout
-		scale.x -= .5
-		scale.y -= .5
+	while (grow_time < end_time):
+		await get_tree().create_timer(0.01).timeout
+		if (scale.x >= 0):
+			scale.x -= .15
+		else:
+			scale.x = 0
+		if (scale.y >= 0):
+			scale.y -= .15
+		else:
+			scale.y = 0
 		grow_time += .1
+		

@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://paaa8tto3uqq" path="res://art/Kitchen_items.png" id="11_0480l"]
 [ext_resource type="Texture2D" uid="uid://ben4bskepogr4" path="res://art/Kitchen Items/HouseholdItems_KnifeGold.png" id="11_k2bny"]
 [ext_resource type="PackedScene" uid="uid://2x162fr5h5a4" path="res://scenes/checkpoint.tscn" id="15_hxbyt"]
-[ext_resource type="Texture2D" uid="uid://13lyfiia7v7o" path="res://art/Kitchen Items/HouseholdItems_ChoppingBoardDark.png" id="15_hxyr8"]
-[ext_resource type="Texture2D" uid="uid://cspybhuym7bva" path="res://art/Kitchen Items/HouseholdItems_Ladle.png" id="16_aooj4"]
+[ext_resource type="Texture2D" uid="uid://ck7kjfiamo7ne" path="res://art/Kitchen Items/HouseholdItems_ChoppingBoardDark.png" id="15_hxyr8"]
+[ext_resource type="Texture2D" uid="uid://hbu6gtxnsijw" path="res://art/Kitchen Items/HouseholdItems_Ladle.png" id="16_aooj4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5gll5"]
 
@@ -166,7 +166,6 @@ region_enabled = true
 region_rect = Rect2(528, 1024, 496, 136)
 
 [node name="Player" parent="." instance=ExtResource("1_8ivvu")]
-z_index = 1
 position = Vector2(90, 610)
 
 [node name="PlayerCam" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
@@ -816,13 +815,11 @@ region_rect = Rect2(88, 1696, 400, 160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environments/StaticBody2D16"]
 position = Vector2(35.6061, -52.6515)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_whcuk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Environments/StaticBody2D16"]
 position = Vector2(42.4242, 117.424)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_4dy51")
 
 [node name="Checkpoint" parent="." instance=ExtResource("15_hxbyt")]
