@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game_manager_training.gd" id="1_duivj"]
 [ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="1_xy6js"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_423y0"]
-[ext_resource type="Texture2D" uid="uid://blqgyxequ1nng" path="res://art/TOY BOX TILESET/BACKGROUNDS/BACKGROUND A/background a_02.png" id="3_r3y1n"]
+[ext_resource type="Texture2D" uid="uid://bopcpmlmaudkt" path="res://art/TOY BOX TILESET/BACKGROUNDS/BACKGROUND A/background a_02.png" id="3_r3y1n"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_x3fva"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ruocm"]
 [ext_resource type="PackedScene" uid="uid://djng5061m3yjr" path="res://scenes/box.tscn" id="6_psomh"]
@@ -89,10 +89,10 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_bcas1")
 
 [node name="Player" parent="." instance=ExtResource("1_xy6js")]
-position = Vector2(2235, 433)
+position = Vector2(217, 630)
 
 [node name="PlayerCam" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(1970.86, 433)
+position = Vector2(329.143, 464.857)
 script = ExtResource("2_423y0")
 priority = 1
 follow_mode = 5
