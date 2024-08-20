@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm5cjulwwe6f2"]
+[gd_scene load_steps=11 format=3 uid="uid://bm5cjulwwe6f2"]
 
 [ext_resource type="Script" path="res://scripts/spring.gd" id="1_8h4o6"]
-[ext_resource type="Texture2D" uid="uid://c55fecc7p4tty" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-2.png" id="1_ivxg2"]
-[ext_resource type="Texture2D" uid="uid://by0m281e4pppg" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-3.png" id="2_7jd2n"]
-[ext_resource type="Texture2D" uid="uid://cc81jbe5goksc" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-1.png" id="3_s8lsa"]
-[ext_resource type="Texture2D" uid="uid://dafwtvm47s42u" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-6.png" id="4_rfs5r"]
-[ext_resource type="Texture2D" uid="uid://ca0jcfvo4ayw" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-5.png" id="5_vu0yj"]
-[ext_resource type="Texture2D" uid="uid://decbvxa0q3m3k" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-4.png" id="6_jvirv"]
+[ext_resource type="Texture2D" uid="uid://qgdtnc8eh3wh" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-2.png" id="1_ivxg2"]
+[ext_resource type="Texture2D" uid="uid://dftxs5vv4buhj" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-3.png" id="2_7jd2n"]
+[ext_resource type="Texture2D" uid="uid://b41cesxb71kr2" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-1.png" id="3_s8lsa"]
+[ext_resource type="Texture2D" uid="uid://corhcwnyrrv1r" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-6.png" id="4_rfs5r"]
+[ext_resource type="Texture2D" uid="uid://dxk5xkk2aqeg3" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-5.png" id="5_vu0yj"]
+[ext_resource type="Texture2D" uid="uid://bosewp36jn7ht" path="res://art/Animations/bouncing_mushroom(pink)/bouncing_mushroom-4.png" id="6_jvirv"]
+[ext_resource type="AudioStream" uid="uid://mpgavbfhqia" path="res://sounds/Stage1/sfx_gameplay_stage-1_spring_sprung.wav" id="8_vpklt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uowqq"]
 animations = [{
@@ -69,5 +70,8 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_68l0v")
+
+[node name="SpringSprung" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_vpklt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
