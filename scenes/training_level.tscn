@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://517s6wrny5hu"]
+[gd_scene load_steps=31 format=3 uid="uid://517s6wrny5hu"]
 
 [ext_resource type="Script" path="res://scripts/game_manager_training.gd" id="1_duivj"]
 [ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="1_xy6js"]
@@ -19,10 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://crp14snh3bmai" path="res://art/TOY BOX TILESET/TILES/toy box tile-24.png" id="12_yj7e4"]
 [ext_resource type="Texture2D" uid="uid://cxey1iikrs8mh" path="res://art/TOY BOX TILESET/TILES/toy box tile-20.png" id="13_swru1"]
 [ext_resource type="Texture2D" uid="uid://bx8wdaplm7bt4" path="res://art/TOY BOX TILESET/TILES/toy box tile-25.png" id="13_xxrra"]
-[ext_resource type="Script" path="res://scripts/level_end.gd" id="14_4nxj1"]
 [ext_resource type="Texture2D" uid="uid://j7fcb0hqqlyn" path="res://art/TOY BOX TILESET/TILES/toy box tile-41.png" id="14_airk6"]
+[ext_resource type="PackedScene" uid="uid://cwvmhbfqdjpnt" path="res://scenes/cave.tscn" id="14_fcoad"]
 [ext_resource type="Texture2D" uid="uid://b8egtwhwyivg7" path="res://art/TOY BOX TILESET/TILES/toy box tile-51.png" id="15_lgb7d"]
-[ext_resource type="Texture2D" uid="uid://bvyjmcprihoja" path="res://art/Cave.png" id="15_yks2s"]
+[ext_resource type="PackedScene" uid="uid://brw58yhgv2mib" path="res://scenes/soda_can.tscn" id="15_p5v36"]
 [ext_resource type="Texture2D" uid="uid://dlohh6hcg7e04" path="res://art/TOY BOX TILESET/TILES/toy box tile-50.png" id="16_i28hp"]
 [ext_resource type="Texture2D" uid="uid://e36qtqeavrc8" path="res://art/TOY BOX TILESET/TILES/toy box tile-58.png" id="17_p2lt2"]
 
@@ -39,9 +39,6 @@ script = ExtResource("3_x3fva")
 duration = 1.0
 transition = 0
 ease = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaoca"]
-size = Vector2(45, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w83bd"]
 
@@ -92,10 +89,10 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_bcas1")
 
 [node name="Player" parent="." instance=ExtResource("1_xy6js")]
-position = Vector2(309, 617)
+position = Vector2(2235, 433)
 
 [node name="PlayerCam" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(329.143, 464.857)
+position = Vector2(1970.86, 433)
 script = ExtResource("2_423y0")
 priority = 1
 follow_mode = 5
@@ -198,21 +195,8 @@ texture = ExtResource("13_swru1")
 
 [node name="Environment" type="Node" parent="."]
 
-[node name="Cave" type="Area2D" parent="Environment"]
-position = Vector2(2220, 428)
-collision_layer = 2
-collision_mask = 4
-script = ExtResource("14_4nxj1")
-theme_change = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Cave"]
-position = Vector2(53, -3)
-scale = Vector2(0.238693, 0.341584)
-texture = ExtResource("15_yks2s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cave"]
-position = Vector2(54, -1)
-shape = SubResource("RectangleShape2D_jaoca")
+[node name="Cave" parent="Environment" instance=ExtResource("14_fcoad")]
+newScene = ExtResource("15_p5v36")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment"]
 position = Vector2(798, 627)
@@ -352,8 +336,6 @@ offset_right = 1861.0
 offset_bottom = 534.0
 text = "R to reset...
 Not everything changes..."
-
-[connection signal="body_entered" from="Environment/Cave" to="Environment/Cave" method="_on_body_entered"]
 
 [editable path="Boxes/Box"]
 [editable path="Boxes/Box2"]

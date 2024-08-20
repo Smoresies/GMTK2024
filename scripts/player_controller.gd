@@ -120,7 +120,7 @@ func leave(theme: int):
 		if (theme != 0):
 			AudioManager.change_tune(theme)
 		
-		get_tree().change_scene_to_file("res://scenes/soda_can.tscn")
+		
 
 func shrink(end_time: int):
 	var grow_time = 0
