@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c388gpdtgchlq"]
+[gd_scene load_steps=16 format=3 uid="uid://c388gpdtgchlq"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ic2f5"]
 [ext_resource type="Texture2D" uid="uid://djsrtt8t6fjf4" path="res://art/UIs & Icons/buttons & windows/Item4.png" id="1_ldmbh"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://xui1aa5df4t8" path="res://art/UIs & Icons/buttons & windows/lil_logo.png" id="12_ity8i"]
 [ext_resource type="Texture2D" uid="uid://cfthiy5rvq1wn" path="res://art/UIs & Icons/buttons & windows/gmtk2024-logo.png" id="14_5uxpq"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbib6"]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -23,29 +25,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Cover Up" type="Node2D" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lbib6")
 
-[node name="ColorRect" type="ColorRect" parent="Cover Up"]
-modulate = Color(1, 1, 1, 0)
-z_index = 1
-offset_right = 1153.0
-offset_bottom = 646.0
-color = Color(0, 0, 0, 1)
-
-[node name="Banner" type="Sprite2D" parent="."]
-position = Vector2(576, 200)
+[node name="Banner" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(20, -104)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ldmbh")
 
-[node name="Title" type="Sprite2D" parent="."]
-position = Vector2(653, 322)
+[node name="Title" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(97, 18)
 texture = ExtResource("2_uw4qc")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background2" type="Sprite2D" parent="PanelContainer"]
 z_index = -2
-position = Vector2(575, 325)
-scale = Vector2(0.77356, 1.98844)
+position = Vector2(19, 21)
+scale = Vector2(100, 257)
 texture = ExtResource("2_x4a73")
+
+[node name="Background" type="Sprite2D" parent="PanelContainer"]
+z_index = -2
+position = Vector2(19, 21)
+scale = Vector2(0.78, 2.004)
+texture = ExtResource("2_x4a73")
+
+[node name="LilLogoLogo" type="Sprite2D" parent="PanelContainer"]
+modulate = Color(1, 1, 1, 0.27451)
+z_index = -2
+position = Vector2(17, -26)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("12_ity8i")
+
+[node name="Gmtk2024-logo" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(379, 203)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_5uxpq")
 
 [node name="Options" type="VBoxContainer" parent="." node_paths=PackedStringArray("black_screen")]
 layout_mode = 1
@@ -60,7 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 script = ExtResource("1_ic2f5")
-black_screen = NodePath("../Cover Up/ColorRect")
+black_screen = NodePath("")
 
 [node name="Start Button" type="Label" parent="Options"]
 texture_filter = 1
@@ -130,19 +156,7 @@ volume_db = -25.0
 stream = ExtResource("11_mtxca")
 volume_db = -10.0
 
-[node name="LilLogoLogo" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.27451)
-z_index = -2
-position = Vector2(573, 278)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("12_ity8i")
-
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ekh80")
 volume_db = -20.0
 autoplay = true
-
-[node name="Gmtk2024-logo" type="Sprite2D" parent="."]
-position = Vector2(935, 507)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("14_5uxpq")
