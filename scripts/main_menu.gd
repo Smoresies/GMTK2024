@@ -30,9 +30,10 @@ func _process(delta):
 			AudioManager.change_tune(2)
 			get_tree().change_scene_to_file("res://scenes/training_level.tscn")
 		elif current_selection == 2:
-			pass
-			#Will eventually take the player to the credits scene or something
-			#get_tree().change_scene("res://scenes/training_level.tscn")
+			select_sfx.play()
+			selected = true
+			await select_sfx.finished
+			get_tree().change_scene_to_file("res://scenes/credits.tscn")
 		elif current_selection == 3:
 			select_sfx.play()
 			selected = true
