@@ -30,7 +30,7 @@
 
 [sub_resource type="Resource" id="Resource_hf2bs"]
 script = ExtResource("3_x3fva")
-duration = 1.5
+duration = 3.0
 transition = 2
 ease = 0
 
