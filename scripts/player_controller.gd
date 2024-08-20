@@ -21,6 +21,9 @@ var paused: bool = false
 @onready var vo_player_jump = $Audio/VOPlayerJump
 @onready var vo_player_push = $Audio/VOPlayerPush
 @onready var vo_player_laugh = $Audio/VOPlayerLaugh
+@onready var reset_stage_transition_in = $Audio/ResetStageTransitionIn
+@onready var reset_stage_transition_out = $Audio/ResetStageTransitionOut
+
 
 @onready var player_footstep_wood = $Audio/PlayerFootstepWood
 var footstep_frames : Array = [1,3]
@@ -31,6 +34,7 @@ func _ready():
 	animated_sprite_2d.visible = false
 	paused = true
 	await get_tree().create_timer(5).timeout
+	reset_stage_transition_out.play()
 	smoke.emitting = true
 	animated_sprite_2d.visible = true
 	await smoke.finished
@@ -108,6 +112,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("restart") and !paused:
+		reset_stage_transition_in.play()
 		velocity = Vector2.ZERO
 		paused = true
 		animated_sprite_2d.visible = false

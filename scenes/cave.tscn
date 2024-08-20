@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwvmhbfqdjpnt"]
+[gd_scene load_steps=7 format=3 uid="uid://cwvmhbfqdjpnt"]
 
 [ext_resource type="Script" path="res://scripts/level_end.gd" id="1_ic36o"]
-[ext_resource type="Texture2D" uid="uid://bvyjmcprihoja" path="res://art/Cave.png" id="3_rkfqi"]
+[ext_resource type="AudioStream" uid="uid://deq5c6y0uy0hi" path="res://sounds/AngryGuy/vo_stage-finish-stinger.wav" id="3_3h4e4"]
+[ext_resource type="Texture2D" uid="uid://bikgpxlrsd6u0" path="res://art/Cave.png" id="3_rkfqi"]
+[ext_resource type="AudioStream" uid="uid://b6xcki7qesm2e" path="res://sounds/GameplayUI/ui_popup_mini-mischief_in.wav" id="4_2fhyu"]
 
 [sub_resource type="PackedScene" id="PackedScene_sv82f"]
 
@@ -24,5 +26,11 @@ texture = ExtResource("3_rkfqi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(54, -1)
 shape = SubResource("RectangleShape2D_jaoca")
+
+[node name="VOStageFinishStinger" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3h4e4")
+
+[node name="MiniMischiefPopupIn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2fhyu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

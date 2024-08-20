@@ -15,11 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bra3mcq01o2at" path="res://art/Kitchen_items.png" id="11_0480l"]
 [ext_resource type="Texture2D" uid="uid://ck4bg5aiuohwi" path="res://art/Kitchen Items/HouseholdItems_KnifeGold.png" id="11_k2bny"]
 [ext_resource type="PackedScene" uid="uid://2x162fr5h5a4" path="res://scenes/checkpoint.tscn" id="15_hxbyt"]
-[ext_resource type="Texture2D" uid="uid://13lyfiia7v7o" path="res://art/Kitchen Items/HouseholdItems_ChoppingBoardDark.png" id="15_hxyr8"]
-[ext_resource type="Texture2D" uid="uid://cspybhuym7bva" path="res://art/Kitchen Items/HouseholdItems_Ladle.png" id="16_aooj4"]
+[ext_resource type="Texture2D" uid="uid://bgdjpxcy87e6o" path="res://art/Kitchen Items/HouseholdItems_ChoppingBoardDark.png" id="15_hxyr8"]
+[ext_resource type="Texture2D" uid="uid://xglsnr5fjdjs" path="res://art/Kitchen Items/HouseholdItems_Ladle.png" id="16_aooj4"]
 [ext_resource type="PackedScene" uid="uid://cwvmhbfqdjpnt" path="res://scenes/cave.tscn" id="18_02dw0"]
 [ext_resource type="PackedScene" uid="uid://bn7lfoppua0ev" path="res://scenes/credits.tscn" id="19_isovk"]
-
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5gll5"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://meklyxgioiqv"]
+[gd_scene load_steps=52 format=3 uid="uid://meklyxgioiqv"]
 
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_xbml8"]
 [ext_resource type="Texture2D" uid="uid://5w0xdby5wqcg" path="res://art/Animations/idle/idle-1.png" id="2_m000i"]
@@ -39,6 +39,8 @@
 [ext_resource type="AudioStream" uid="uid://bwmr25mo17e1r" path="res://sounds/Player/sfx_player_footstep_wood_v1.wav" id="37_kerjh"]
 [ext_resource type="AudioStream" uid="uid://85qrct34p1b" path="res://sounds/Player/sfx_player_footstep_wood_v2.wav" id="38_t2725"]
 [ext_resource type="AudioStream" uid="uid://5hhpylietm5k" path="res://sounds/Player/sfx_player_footstep_wood_v3.wav" id="39_hkhod"]
+[ext_resource type="AudioStream" uid="uid://dtrgqn1ftwaj4" path="res://sounds/GameplayUI/ui_stage_reset_in.wav" id="40_dnrd8"]
+[ext_resource type="AudioStream" uid="uid://c3ondjxqgjnwn" path="res://sounds/GameplayUI/ui_stage_reset_out.wav" id="41_ymt61"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dafoi"]
 
@@ -266,5 +268,13 @@ stream = SubResource("AudioStreamRandomizer_uwdyv")
 [node name="PlayerFootstepWood" type="AudioStreamPlayer" parent="Audio"]
 stream = SubResource("AudioStreamRandomizer_yxmdt")
 volume_db = -15.306
+
+[node name="ResetStageTransitionIn" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("40_dnrd8")
+volume_db = -8.361
+
+[node name="ResetStageTransitionOut" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("41_ymt61")
+volume_db = -8.884
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
