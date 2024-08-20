@@ -167,10 +167,10 @@ region_rect = Rect2(528, 1024, 496, 136)
 
 [node name="Player" parent="." instance=ExtResource("1_8ivvu")]
 z_index = 1
-position = Vector2(2019, 56)
+position = Vector2(90, 610)
 
 [node name="PlayerCam" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(1970.86, 185.143)
+position = Vector2(329.143, 464.857)
 script = ExtResource("2_c786m")
 priority = 1
 follow_mode = 5
@@ -187,7 +187,7 @@ limit_right = 2300
 limit_bottom = 650
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1970.86, 185.143)
+position = Vector2(329.143, 464.857)
 zoom = Vector2(1.75, 1.75)
 limit_left = 0
 limit_top = 0
