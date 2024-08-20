@@ -16,6 +16,15 @@ var paused: bool = false
 @onready var coyote_timer = %CoyoteTimer
 @onready var smoke = $Smoke
 
+@onready var player_jump_scuffle = $Audio/PlayerJumpScuffle
+@onready var player_landing_scuffle = $Audio/PlayerLandingScuffle
+@onready var vo_player_jump = $Audio/VOPlayerJump
+@onready var vo_player_push = $Audio/VOPlayerPush
+@onready var vo_player_laugh = $Audio/VOPlayerLaugh
+
+@onready var player_footstep_wood = $Audio/PlayerFootstepWood
+var footstep_frames : Array = [1,3]
+
 func _ready():
 	set_meta("Player", self)
 	checkpoint = position
@@ -60,6 +69,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()) :
 		velocity.y = JUMP_VELOCITY
 		animated_sprite_2d.play("jump_start")
+		player_jump_scuffle.play()
+		vo_player_jump.play()
+		
+		
 	
 	# Pushing crates, only done while on ground
 	if is_on_floor():
@@ -79,6 +92,7 @@ func _physics_process(delta):
 				#if animated_sprite_2d.animation != "push" and pushDir != Vector2.ZERO:
 				#	print("about to push")
 				#	animated_sprite_2d.play("push")
+					
 
 	var was_on_floor: bool = is_on_floor()
 	move_and_slide()
@@ -90,6 +104,7 @@ func _physics_process(delta):
 	# if we were midair last frame, but are on floor now.
 	if !was_on_floor and is_on_floor():
 		animated_sprite_2d.play("landing")
+		player_landing_scuffle.play()
 
 func _input(event):
 	if event.is_action_pressed("restart") and !paused:
@@ -136,3 +151,12 @@ func shrink(end_time: int):
 			scale.y = 0
 		grow_time += .1
 		
+
+## Handle footstep sound trigger
+func _on_animated_sprite_2d_frame_changed():
+	if animated_sprite_2d.animation == "idle": return
+	if animated_sprite_2d.animation == "midair" :return
+	if animated_sprite_2d.animation == "jump_start": return
+	
+	if animated_sprite_2d.frame in footstep_frames: player_footstep_wood.play()
+

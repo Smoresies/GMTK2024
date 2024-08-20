@@ -1,35 +1,44 @@
-[gd_scene load_steps=39 format=3 uid="uid://meklyxgioiqv"]
+[gd_scene load_steps=50 format=3 uid="uid://meklyxgioiqv"]
 
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_xbml8"]
-[ext_resource type="Texture2D" uid="uid://mctpujjovs5u" path="res://art/Animations/idle/idle-1.png" id="2_m000i"]
-[ext_resource type="Texture2D" uid="uid://dndlqfcgic8qs" path="res://art/Animations/idle/idle-2.png" id="3_ubmug"]
-[ext_resource type="Texture2D" uid="uid://cmhqwe175a68m" path="res://art/Animations/jump_start/jump_start-1.png" id="6_558lc"]
-[ext_resource type="Texture2D" uid="uid://cpbvl8g2w3fu5" path="res://art/Animations/idle/idle-5.png" id="6_boqlh"]
-[ext_resource type="Texture2D" uid="uid://7hvkxsmsagj0" path="res://art/Animations/idle/idle-6.png" id="7_3pi0s"]
-[ext_resource type="Texture2D" uid="uid://cw3guhxa28ngu" path="res://art/Animations/jump_start/jump_start-2.png" id="7_7k8xg"]
-[ext_resource type="Texture2D" uid="uid://de6dqvhwbbkdg" path="res://art/Animations/jump_start/jump_start-3.png" id="8_ftmr1"]
-[ext_resource type="Texture2D" uid="uid://d3rgufkbwvtup" path="res://art/Animations/jump_start/jump_start-4.png" id="9_7xe0n"]
-[ext_resource type="Texture2D" uid="uid://c8eydigwj5w4p" path="res://art/Animations/jump_start/jump_start-5.png" id="10_jly0f"]
-[ext_resource type="Texture2D" uid="uid://bqip4t67u5dtc" path="res://art/Animations/jump_land/jump_land-1.png" id="13_hx838"]
-[ext_resource type="Texture2D" uid="uid://5le2qp4idbg3" path="res://art/Animations/jump_land/jump_land-2.png" id="14_srdfk"]
-[ext_resource type="Texture2D" uid="uid://dy5taxyessw64" path="res://art/Animations/jump_land/jump_land-3.png" id="15_3kf60"]
-[ext_resource type="Texture2D" uid="uid://bc3v4osmbhedc" path="res://art/Animations/jump_land/jump_land-4.png" id="16_bhmi5"]
-[ext_resource type="Texture2D" uid="uid://b8k5aldfmqsx6" path="res://art/Animations/jump_land/jump_land-5.png" id="17_o5yjw"]
-[ext_resource type="Texture2D" uid="uid://dp4y3jnoymt2h" path="res://art/Animations/fall/fall-1.png" id="18_meru6"]
-[ext_resource type="Texture2D" uid="uid://b46yeydeoa78p" path="res://art/Animations/fall/fall-2.png" id="19_cl08e"]
-[ext_resource type="Texture2D" uid="uid://bo5nxmqjwvp7g" path="res://art/Animations/fall/fall-3.png" id="20_bhaa3"]
-[ext_resource type="Texture2D" uid="uid://c4aabs2vuqcmj" path="res://art/Animations/fall/fall-4.png" id="21_4ug3t"]
-[ext_resource type="Texture2D" uid="uid://g127fx66oo7" path="res://art/Animations/fall/fall-5.png" id="22_0dc5a"]
-[ext_resource type="Texture2D" uid="uid://c78qy4ptvb7l7" path="res://art/Animations/push/push-1.png" id="22_y6ugr"]
-[ext_resource type="Texture2D" uid="uid://ehxwu2yayaoi" path="res://art/Animations/fall/fall-6.png" id="23_25lb1"]
-[ext_resource type="Texture2D" uid="uid://d7pa2oyyo6wc" path="res://art/Animations/push/push-2.png" id="23_urre2"]
-[ext_resource type="Texture2D" uid="uid://eegbr4nxags8" path="res://art/Animations/push/push-3.png" id="24_80b31"]
-[ext_resource type="Texture2D" uid="uid://dislijikg8npy" path="res://art/Animations/walk/walk-1.png" id="24_btt3r"]
-[ext_resource type="Texture2D" uid="uid://5rs7e3yx44fj" path="res://art/Animations/walk/walk-2.png" id="25_cxxj4"]
-[ext_resource type="Texture2D" uid="uid://b1utetpry3lo1" path="res://art/Animations/push/push-4.png" id="25_iwxsv"]
-[ext_resource type="Texture2D" uid="uid://bvqpiyc2jytsb" path="res://art/Animations/walk/walk-3.png" id="26_bppxh"]
-[ext_resource type="Texture2D" uid="uid://blc2lrw7cm1rf" path="res://art/Animations/walk/walk-4.png" id="27_n2gok"]
-[ext_resource type="Texture2D" uid="uid://bdoowyed3kk5n" path="res://art/Cloud Test.png" id="30_bu42b"]
+[ext_resource type="Texture2D" uid="uid://5w0xdby5wqcg" path="res://art/Animations/idle/idle-1.png" id="2_m000i"]
+[ext_resource type="Texture2D" uid="uid://bqo6rpmr4r60r" path="res://art/Animations/idle/idle-2.png" id="3_ubmug"]
+[ext_resource type="Texture2D" uid="uid://5tusewrn5hsk" path="res://art/Animations/jump_start/jump_start-1.png" id="6_558lc"]
+[ext_resource type="Texture2D" uid="uid://0vhvaklu3hfa" path="res://art/Animations/idle/idle-5.png" id="6_boqlh"]
+[ext_resource type="Texture2D" uid="uid://cdhnwbitbidxk" path="res://art/Animations/idle/idle-6.png" id="7_3pi0s"]
+[ext_resource type="Texture2D" uid="uid://tf1pyxrlha15" path="res://art/Animations/jump_start/jump_start-2.png" id="7_7k8xg"]
+[ext_resource type="Texture2D" uid="uid://c4dp2rxospbov" path="res://art/Animations/jump_start/jump_start-3.png" id="8_ftmr1"]
+[ext_resource type="Texture2D" uid="uid://dr654amn05ey7" path="res://art/Animations/jump_start/jump_start-4.png" id="9_7xe0n"]
+[ext_resource type="Texture2D" uid="uid://chslwe7vnaf4c" path="res://art/Animations/jump_start/jump_start-5.png" id="10_jly0f"]
+[ext_resource type="Texture2D" uid="uid://lbllb2khh0a7" path="res://art/Animations/jump_land/jump_land-1.png" id="13_hx838"]
+[ext_resource type="Texture2D" uid="uid://n1kfq5hl35la" path="res://art/Animations/jump_land/jump_land-2.png" id="14_srdfk"]
+[ext_resource type="Texture2D" uid="uid://bmfabsrwkw465" path="res://art/Animations/jump_land/jump_land-3.png" id="15_3kf60"]
+[ext_resource type="Texture2D" uid="uid://d6ughsjugomq" path="res://art/Animations/jump_land/jump_land-4.png" id="16_bhmi5"]
+[ext_resource type="Texture2D" uid="uid://dhisyiccq5qmu" path="res://art/Animations/jump_land/jump_land-5.png" id="17_o5yjw"]
+[ext_resource type="Texture2D" uid="uid://cd58bu15nekj0" path="res://art/Animations/fall/fall-1.png" id="18_meru6"]
+[ext_resource type="Texture2D" uid="uid://cbuhchx8w3hfc" path="res://art/Animations/fall/fall-2.png" id="19_cl08e"]
+[ext_resource type="Texture2D" uid="uid://c0d8fd6axmj3m" path="res://art/Animations/fall/fall-3.png" id="20_bhaa3"]
+[ext_resource type="Texture2D" uid="uid://danpuhp4o0bd6" path="res://art/Animations/fall/fall-4.png" id="21_4ug3t"]
+[ext_resource type="Texture2D" uid="uid://b2nhy5ghmnux4" path="res://art/Animations/fall/fall-5.png" id="22_0dc5a"]
+[ext_resource type="Texture2D" uid="uid://bv7yoaylkbom" path="res://art/Animations/push/push-1.png" id="22_y6ugr"]
+[ext_resource type="Texture2D" uid="uid://m67h7k6rg8my" path="res://art/Animations/fall/fall-6.png" id="23_25lb1"]
+[ext_resource type="Texture2D" uid="uid://dk15k65fey8hm" path="res://art/Animations/push/push-2.png" id="23_urre2"]
+[ext_resource type="Texture2D" uid="uid://dup8yhalmt7pq" path="res://art/Animations/push/push-3.png" id="24_80b31"]
+[ext_resource type="Texture2D" uid="uid://b587yo4ans8vx" path="res://art/Animations/walk/walk-1.png" id="24_btt3r"]
+[ext_resource type="Texture2D" uid="uid://bdsqqcw13plud" path="res://art/Animations/walk/walk-2.png" id="25_cxxj4"]
+[ext_resource type="Texture2D" uid="uid://2ggg2o8aoogh" path="res://art/Animations/push/push-4.png" id="25_iwxsv"]
+[ext_resource type="Texture2D" uid="uid://d1gwr3eprw16u" path="res://art/Animations/walk/walk-3.png" id="26_bppxh"]
+[ext_resource type="Texture2D" uid="uid://crtj1bnhnubsd" path="res://art/Animations/walk/walk-4.png" id="27_n2gok"]
+[ext_resource type="Texture2D" uid="uid://dogqyml38ehhl" path="res://art/Cloud Test.png" id="30_bu42b"]
+[ext_resource type="AudioStream" uid="uid://ba03r2pp671u6" path="res://sounds/Player/sfx_player_jump_scuffle.wav" id="31_d0deu"]
+[ext_resource type="AudioStream" uid="uid://dfo611hu05nfw" path="res://sounds/Player/sfx_player_landing_scuffle.wav" id="32_qr0bi"]
+[ext_resource type="AudioStream" uid="uid://b47xmdrlwv772" path="res://sounds/Player/vo_player_jump_v1.wav" id="33_2m2t4"]
+[ext_resource type="AudioStream" uid="uid://b2g7g4pu7mosf" path="res://sounds/Player/vo_player_push_v1.wav" id="34_ft7ps"]
+[ext_resource type="AudioStream" uid="uid://cxq7vribnpl6x" path="res://sounds/Player/vo_player_push_v2.wav" id="35_ux04i"]
+[ext_resource type="AudioStream" uid="uid://bhr02ovkbtk8e" path="res://sounds/Player/vo_player_push_v3.wav" id="36_rss6l"]
+[ext_resource type="AudioStream" uid="uid://bwmr25mo17e1r" path="res://sounds/Player/sfx_player_footstep_wood_v1.wav" id="37_kerjh"]
+[ext_resource type="AudioStream" uid="uid://85qrct34p1b" path="res://sounds/Player/sfx_player_footstep_wood_v2.wav" id="38_t2725"]
+[ext_resource type="AudioStream" uid="uid://5hhpylietm5k" path="res://sounds/Player/sfx_player_footstep_wood_v3.wav" id="39_hkhod"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dafoi"]
 
@@ -186,6 +195,27 @@ scale_max = 0.45
 scale_curve = SubResource("CurveTexture_ixcnt")
 color_ramp = SubResource("GradientTexture1D_07jex")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uwdyv"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("34_ft7ps")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("35_ux04i")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("36_rss6l")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yxmdt"]
+random_pitch = 1.1
+random_volume_offset_db = 0.5
+streams_count = 3
+stream_0/stream = ExtResource("37_kerjh")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("38_t2725")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("39_hkhod")
+stream_2/weight = 1.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 4
@@ -205,7 +235,6 @@ scale = Vector2(0.018, 0.018)
 sprite_frames = SubResource("SpriteFrames_otvcs")
 animation = &"push"
 autoplay = "idle"
-frame_progress = 0.745728
 
 [node name="Smoke" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_sld64")
@@ -216,3 +245,26 @@ texture = ExtResource("30_bu42b")
 lifetime = 0.5
 one_shot = true
 explosiveness = 0.5
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="PlayerJumpScuffle" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("31_d0deu")
+
+[node name="PlayerLandingScuffle" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("32_qr0bi")
+
+[node name="VOPlayerJump" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("33_2m2t4")
+volume_db = -5.227
+
+[node name="VOPlayerPush" type="AudioStreamPlayer2D" parent="Audio"]
+stream = SubResource("AudioStreamRandomizer_uwdyv")
+
+[node name="VOPlayerLaugh" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="PlayerFootstepWood" type="AudioStreamPlayer" parent="Audio"]
+stream = SubResource("AudioStreamRandomizer_yxmdt")
+volume_db = -15.306
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
