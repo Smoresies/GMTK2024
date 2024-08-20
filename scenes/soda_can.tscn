@@ -864,7 +864,7 @@ text = "Mushrooms are Springy!"
 [node name="Cave" parent="." instance=ExtResource("18_02dw0")]
 position = Vector2(2146, 47)
 theme_change = 1
-newScene = ExtResource("19_isovk")
+newScene = ExtResource("19_spl33")
 
 [node name="Sprite2D" parent="Cave" index="0"]
 visible = false
