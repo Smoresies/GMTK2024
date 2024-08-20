@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://meklyxgioiqv"]
+[gd_scene load_steps=39 format=3 uid="uid://meklyxgioiqv"]
 
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_xbml8"]
 [ext_resource type="Texture2D" uid="uid://2y53iq82p0bd" path="res://art/Animations/idle/idle-1.png" id="2_m000i"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://civ3hfdsb0fxn" path="res://art/Animations/push/push-4.png" id="25_iwxsv"]
 [ext_resource type="Texture2D" uid="uid://c8nikvq8500v3" path="res://art/Animations/walk/walk-3.png" id="26_bppxh"]
 [ext_resource type="Texture2D" uid="uid://cbopa77vofgra" path="res://art/Animations/walk/walk-4.png" id="27_n2gok"]
+[ext_resource type="Texture2D" uid="uid://dohnla3cb2r3j" path="res://art/Cloud Test.png" id="30_bu42b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dafoi"]
 
@@ -149,6 +150,42 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sld64"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_5jp37"]
+offsets = PackedFloat32Array(0, 0.663934)
+colors = PackedColorArray(0.847474, 0.847474, 0.847474, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_07jex"]
+gradient = SubResource("Gradient_5jp37")
+
+[sub_resource type="Curve" id="Curve_m4nr7"]
+_data = [Vector2(0, 0.395604), 0.0, 0.0, 0, 0, Vector2(0.793333, 0.912088), 0.31185, 0.31185, 0, 0, Vector2(1, 0.769231), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ixcnt"]
+curve = SubResource("Curve_m4nr7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ixpq"]
+lifetime_randomness = 0.08
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 1, 0)
+emission_shape_scale = Vector3(0.5, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector3(1, -20, 0)
+spread = 34.888
+radial_velocity_max = 14.0
+gravity = Vector3(0, -20, 0)
+scale_min = 0.2
+scale_max = 0.45
+scale_curve = SubResource("CurveTexture_ixcnt")
+color_ramp = SubResource("GradientTexture1D_07jex")
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 4
@@ -169,3 +206,11 @@ sprite_frames = SubResource("SpriteFrames_otvcs")
 animation = &"push"
 autoplay = "idle"
 frame_progress = 0.745728
+
+[node name="Smoke" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_sld64")
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_5ixpq")
+texture = ExtResource("30_bu42b")
+one_shot = true

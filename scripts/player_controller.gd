@@ -14,11 +14,18 @@ var paused: bool = false
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var coyote_timer = %CoyoteTimer
+@onready var smoke = $Smoke
 
 func _ready():
 	set_meta("Player", self)
 	checkpoint = position
-	pause(6)
+	animated_sprite_2d.visible = false
+	paused = true
+	await get_tree().create_timer(6.5).timeout
+	smoke.emitting = true
+	animated_sprite_2d.visible = true
+	await smoke.finished
+	paused = false
 
 
 func _physics_process(delta):
@@ -86,11 +93,14 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("restart") and !paused:
-		pause(1)
-		self.visible = false
+		velocity = Vector2.ZERO
+		paused = true
+		animated_sprite_2d.visible = false
+		smoke.emitting = true
+		await smoke.finished
 		goToCheckpoint()
-		self.visible = true
-		#TODO Set this to an animation controller, have the player go back AFTER they have done animation
+		animated_sprite_2d.visible = true
+		paused = false
 
 func goToCheckpoint():
 	position = checkpoint
@@ -105,7 +115,7 @@ func leave(theme: int):
 		
 		animated_sprite_2d.play("walk")
 		
-		await shrink(1.5)
+		await shrink(2)
 		
 		if (theme != 0):
 			AudioManager.change_tune(theme)
