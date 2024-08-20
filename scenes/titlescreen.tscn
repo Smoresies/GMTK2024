@@ -1,18 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://c388gpdtgchlq"]
+[gd_scene load_steps=15 format=3 uid="uid://c388gpdtgchlq"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ic2f5"]
-[ext_resource type="Texture2D" uid="uid://co87cmt5wkdix" path="res://art/UIs & Icons/buttons & windows/Item4.png" id="1_ldmbh"]
+[ext_resource type="Texture2D" uid="uid://djsrtt8t6fjf4" path="res://art/UIs & Icons/buttons & windows/Item4.png" id="1_ldmbh"]
 [ext_resource type="Script" path="res://scripts/menu_buttons.gd" id="1_sq4s6"]
-[ext_resource type="Texture2D" uid="uid://bu8lwm732uaj8" path="res://art/UIs & Icons/buttons & windows/Title.png" id="2_uw4qc"]
-[ext_resource type="Texture2D" uid="uid://btosqxiudt2b6" path="res://art/UIs & Icons/buttons & windows/Item2.png" id="2_x4a73"]
-[ext_resource type="Texture2D" uid="uid://cbgvpeddvn0ta" path="res://art/UIs & Icons/buttons & windows/Item5.png" id="3_u1bbt"]
-[ext_resource type="Texture2D" uid="uid://cy6cehsmy60bt" path="res://art/UIs & Icons/Icon_Start.png" id="7_qoxg0"]
-[ext_resource type="Texture2D" uid="uid://b141edvsnysjq" path="res://art/UIs & Icons/Icon_Writing.png" id="8_cpqke"]
-[ext_resource type="Texture2D" uid="uid://58fnvymg1gyu" path="res://art/UIs & Icons/Icon_Return.png" id="9_64o6j"]
-[ext_resource type="AudioStream" uid="uid://hsvx4b3myyfl" path="res://sounds/Title SFX/sfx_ui_mainmenu_change-focus.wav" id="10_7osof"]
-[ext_resource type="Texture2D" uid="uid://ccwn5nx13ixc3" path="res://art/UIs & Icons/buttons & windows/lil_logo_logo.png" id="10_16lnu"]
-[ext_resource type="AudioStream" uid="uid://boib1214puxcn" path="res://sounds/Title SFX/amb_mainmenu_loop.wav" id="11_ekh80"]
-[ext_resource type="AudioStream" uid="uid://bkhnxwuv0alg7" path="res://sounds/Title SFX/sfx_ui_mainmenu_button-press.wav" id="11_mtxca"]
+[ext_resource type="Texture2D" uid="uid://ba4xj8gw5akty" path="res://art/UIs & Icons/buttons & windows/Title.png" id="2_uw4qc"]
+[ext_resource type="Texture2D" uid="uid://kdfyybkjrofc" path="res://art/UIs & Icons/buttons & windows/Item2.png" id="2_x4a73"]
+[ext_resource type="Texture2D" uid="uid://byctoiw08n54a" path="res://art/UIs & Icons/buttons & windows/Item5.png" id="3_u1bbt"]
+[ext_resource type="Texture2D" uid="uid://cnino1li27ehr" path="res://art/UIs & Icons/Icon_Start.png" id="7_qoxg0"]
+[ext_resource type="Texture2D" uid="uid://cmmv1g8hnknrn" path="res://art/UIs & Icons/Icon_Writing.png" id="8_cpqke"]
+[ext_resource type="Texture2D" uid="uid://cr3x68nu63jfl" path="res://art/UIs & Icons/Icon_Return.png" id="9_64o6j"]
+[ext_resource type="AudioStream" uid="uid://jkf1pq4iqk1p" path="res://sounds/Title SFX/sfx_ui_mainmenu_change-focus.wav" id="10_7osof"]
+[ext_resource type="AudioStream" uid="uid://bcyhww4mywnql" path="res://sounds/Title SFX/amb_mainmenu_loop.wav" id="11_ekh80"]
+[ext_resource type="AudioStream" uid="uid://blbft8w3s666y" path="res://sounds/Title SFX/sfx_ui_mainmenu_button-press.wav" id="11_mtxca"]
+[ext_resource type="Texture2D" path="res://art/UIs & Icons/buttons & windows/lil_logo.png" id="12_ity8i"]
+[ext_resource type="Texture2D" uid="uid://cfthiy5rvq1wn" path="res://art/UIs & Icons/buttons & windows/gmtk2024-logo.png" id="14_5uxpq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -62,6 +63,7 @@ script = ExtResource("1_ic2f5")
 black_screen = NodePath("../Cover Up/ColorRect")
 
 [node name="Start Button" type="Label" parent="Options"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "   Start"
@@ -81,6 +83,7 @@ scale = Vector2(0.13, 0.08)
 texture = ExtResource("7_qoxg0")
 
 [node name="Credits Button" type="Label" parent="Options"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "   Credits"
@@ -100,6 +103,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_cpqke")
 
 [node name="Quit Button" type="Label" parent="Options"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "   Quit"
@@ -127,14 +131,18 @@ stream = ExtResource("11_mtxca")
 volume_db = -10.0
 
 [node name="LilLogoLogo" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.384314)
+modulate = Color(1, 1, 1, 0.27451)
 z_index = -2
-position = Vector2(576, 396)
-scale = Vector2(0.133984, 0.129102)
-texture = ExtResource("10_16lnu")
+position = Vector2(573, 278)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("12_ity8i")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ekh80")
 volume_db = -20.0
 autoplay = true
+
+[node name="Gmtk2024-logo" type="Sprite2D" parent="."]
+position = Vector2(935, 507)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_5uxpq")

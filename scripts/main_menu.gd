@@ -17,7 +17,7 @@ func _process(delta):
 		move_sfx.play()
 		
 	#Awaits the selection input
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed("select"):
 		if current_selection == 1:
 			#Temp Timer system
 			var timer : int = 0
