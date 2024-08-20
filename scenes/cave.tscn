@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cwvmhbfqdjpnt"]
 
 [ext_resource type="Script" path="res://scripts/level_end.gd" id="1_ic36o"]
-[ext_resource type="AudioStream" uid="uid://deq5c6y0uy0hi" path="res://sounds/AngryGuy/vo_stage-finish-stinger.wav" id="3_3h4e4"]
-[ext_resource type="Texture2D" uid="uid://bikgpxlrsd6u0" path="res://art/Cave.png" id="3_rkfqi"]
-[ext_resource type="AudioStream" uid="uid://b6xcki7qesm2e" path="res://sounds/GameplayUI/ui_popup_mini-mischief_in.wav" id="4_2fhyu"]
+[ext_resource type="AudioStream" uid="uid://c2ubrdeckiwxj" path="res://sounds/AngryGuy/vo_stage-finish-stinger.wav" id="3_3h4e4"]
+[ext_resource type="Texture2D" uid="uid://bvyjmcprihoja" path="res://art/Cave.png" id="3_rkfqi"]
+[ext_resource type="AudioStream" uid="uid://cobl3jojoesm7" path="res://sounds/GameplayUI/ui_popup_mini-mischief_in.wav" id="4_2fhyu"]
 
 [sub_resource type="PackedScene" id="PackedScene_sv82f"]
 

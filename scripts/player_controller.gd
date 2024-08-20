@@ -156,6 +156,7 @@ func shrink(end_time: int):
 			scale.y = 0
 		grow_time += .1
 		
+	animated_sprite_2d.visible = false
 
 ## Handle footstep sound trigger
 func _on_animated_sprite_2d_frame_changed():

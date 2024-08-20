@@ -15,10 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bqead10dwd5f8" path="res://art/Kitchen_items.png" id="11_0480l"]
 [ext_resource type="Texture2D" uid="uid://v672lsr7kyhu" path="res://art/Kitchen Items/HouseholdItems_KnifeGold.png" id="11_k2bny"]
 [ext_resource type="PackedScene" uid="uid://2x162fr5h5a4" path="res://scenes/checkpoint.tscn" id="15_hxbyt"]
-[ext_resource type="Texture2D" uid="uid://bgdjpxcy87e6o" path="res://art/Kitchen Items/HouseholdItems_ChoppingBoardDark.png" id="15_hxyr8"]
-[ext_resource type="Texture2D" uid="uid://xglsnr5fjdjs" path="res://art/Kitchen Items/HouseholdItems_Ladle.png" id="16_aooj4"]
+[ext_resource type="Texture2D" uid="uid://13lyfiia7v7o" path="res://art/Kitchen Items/HouseholdItems_ChoppingBoardDark.png" id="15_hxyr8"]
+[ext_resource type="Texture2D" uid="uid://cspybhuym7bva" path="res://art/Kitchen Items/HouseholdItems_Ladle.png" id="16_aooj4"]
 [ext_resource type="PackedScene" uid="uid://cwvmhbfqdjpnt" path="res://scenes/cave.tscn" id="18_02dw0"]
-[ext_resource type="PackedScene" uid="uid://bn7lfoppua0ev" path="res://scenes/credits.tscn" id="19_isovk"]
+[ext_resource type="PackedScene" uid="uid://dujam1q7j5pmg" path="res://scenes/spicy_soup.tscn" id="19_pllkn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5gll5"]
 
@@ -181,7 +181,6 @@ tween_resource = SubResource("Resource_eb45i")
 follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
 dead_zone_width = 0.4
-draw_limits = true
 limit_left = 0
 limit_top = 0
 limit_right = 2300
@@ -201,7 +200,6 @@ position = Vector2(1741, 332)
 script = ExtResource("2_c786m")
 priority = 2
 tween_resource = SubResource("Resource_oo6le")
-draw_limits = true
 limit_left = 0
 limit_top = -1000000
 limit_bottom = 650
@@ -567,7 +565,7 @@ scale = Vector2(4, 12)
 shape = SubResource("RectangleShape2D_usu3l")
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Environments"]
-position = Vector2(345, 195)
+position = Vector2(345, 210)
 scale = Vector2(2, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Environments/StaticBody2D10"]
@@ -841,7 +839,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4dy51")
 
 [node name="Checkpoint" parent="." instance=ExtResource("15_hxbyt")]
-position = Vector2(223, 165)
+position = Vector2(220, 180)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("15_hxbyt")]
 position = Vector2(1179, 51)
@@ -863,8 +861,8 @@ text = "Mushrooms are Springy!"
 
 [node name="Cave" parent="." instance=ExtResource("18_02dw0")]
 position = Vector2(2146, 47)
-theme_change = 1
-newScene = ExtResource("19_spl33")
+theme_change = 0
+newScene = ExtResource("19_pllkn")
 
 [node name="Sprite2D" parent="Cave" index="0"]
 visible = false

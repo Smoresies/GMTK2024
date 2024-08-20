@@ -1,17 +1,17 @@
-[gd_scene load_steps=25 format=3 uid="uid://dujam1q7j5pmg"]
+[gd_scene load_steps=27 format=3 uid="uid://dujam1q7j5pmg"]
 
-[ext_resource type="Texture2D" uid="uid://bifjmnkbh17ax" path="res://art/background-1.png" id="1_7wdck"]
+[ext_resource type="Texture2D" uid="uid://d1kjt81nspu2a" path="res://art/background-1.png" id="1_7wdck"]
 [ext_resource type="Script" path="res://scripts/game_manager_training.gd" id="1_v08ib"]
-[ext_resource type="Texture2D" uid="uid://cgvbl3mtjorm6" path="res://art/background-3.png" id="2_ra2wf"]
+[ext_resource type="Texture2D" uid="uid://be8r7fvf6gdho" path="res://art/background-3.png" id="2_ra2wf"]
 [ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="3_kc1sr"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_pj65a"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_y7e07"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_50me2"]
-[ext_resource type="Texture2D" uid="uid://c85l760uy6bsh" path="res://art/kitchen_platforms.png" id="7_qswmy"]
+[ext_resource type="Texture2D" uid="uid://dpr1cogpdxohx" path="res://art/kitchen_platforms.png" id="7_qswmy"]
 [ext_resource type="PackedScene" uid="uid://djng5061m3yjr" path="res://scenes/box.tscn" id="8_0urrv"]
-[ext_resource type="Texture2D" uid="uid://5naqhegdvm3o" path="res://art/Wdo1wo.png" id="8_77hqr"]
+[ext_resource type="Texture2D" uid="uid://dl5p8amev6ho1" path="res://art/Wdo1wo.png" id="8_77hqr"]
 [ext_resource type="PackedScene" uid="uid://bm5cjulwwe6f2" path="res://scenes/spring.tscn" id="9_77qg5"]
-[ext_resource type="Texture2D" uid="uid://paaa8tto3uqq" path="res://art/Kitchen_items.png" id="10_tfqco"]
+[ext_resource type="Texture2D" uid="uid://bqead10dwd5f8" path="res://art/Kitchen_items.png" id="10_tfqco"]
 [ext_resource type="PackedScene" uid="uid://2x162fr5h5a4" path="res://scenes/checkpoint.tscn" id="11_vyjbo"]
 [ext_resource type="PackedScene" uid="uid://cwvmhbfqdjpnt" path="res://scenes/cave.tscn" id="14_it8nk"]
 [ext_resource type="PackedScene" uid="uid://bn7lfoppua0ev" path="res://scenes/credits.tscn" id="15_1omx7"]
@@ -47,6 +47,12 @@ size = Vector2(37, 44.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn6xx"]
 size = Vector2(35, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbsep"]
+size = Vector2(20, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r27r2"]
+size = Vector2(51, 11)
 
 [node name="spicy_soup" type="Node" node_paths=PackedStringArray("startingCamera")]
 script = ExtResource("1_v08ib")
@@ -90,20 +96,19 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_dg6bn")
 
 [node name="Player" parent="." instance=ExtResource("3_kc1sr")]
-position = Vector2(72, 143)
+position = Vector2(98, 148)
 
 [node name="PlayerCam" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(329.143, 185.143)
 script = ExtResource("4_pj65a")
 priority = 1
-follow_mode = 5
+follow_mode = 1
 follow_target = NodePath("../Player")
 zoom = Vector2(1.75, 1.75)
 tween_resource = SubResource("Resource_sbqgr")
 follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
 dead_zone_width = 0.4
-draw_limits = true
 limit_left = 0
 limit_top = 0
 limit_right = 2300
@@ -123,7 +128,6 @@ position = Vector2(1166, 319)
 script = ExtResource("4_pj65a")
 priority = 2
 tween_resource = SubResource("Resource_yljnu")
-draw_limits = true
 limit_left = 0
 limit_top = -1000000
 limit_bottom = 650
@@ -131,12 +135,12 @@ limit_bottom = 650
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(99, 846)
 
+[node name="Wdo1Wo" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("8_77hqr")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-44, 14.5)
 shape = SubResource("RectangleShape2D_wc0n2")
-
-[node name="Wdo1Wo" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("8_77hqr")
 
 [node name="Environment" type="Node" parent="."]
 
@@ -715,21 +719,30 @@ SPRINGFORCE = 500.0
 [node name="Checkpoints" type="Node" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("11_vyjbo")]
-position = Vector2(982, 651)
+position = Vector2(943, 662)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("11_vyjbo")]
-position = Vector2(1382, 127)
+position = Vector2(1382, 132)
+
+[node name="CollisionShape2D" parent="Checkpoints/Checkpoint2" index="0"]
+position = Vector2(0, -24.5)
+shape = SubResource("RectangleShape2D_kbsep")
 
 [node name="Cave" parent="." instance=ExtResource("14_it8nk")]
-position = Vector2(-11, 775)
+position = Vector2(-17, 780)
 theme_change = 1
 newScene = ExtResource("15_1omx7")
 
 [node name="Sprite2D" parent="Cave" index="0"]
 visible = false
 
+[node name="CollisionShape2D" parent="Cave" index="1"]
+position = Vector2(70, 25)
+shape = SubResource("RectangleShape2D_r27r2")
+
 [editable path="Interactables/Box2"]
 [editable path="Interactables/Box6"]
 [editable path="Interactables/Box5"]
 [editable path="Interactables/Box3"]
+[editable path="Checkpoints/Checkpoint2"]
 [editable path="Cave"]
