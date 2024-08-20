@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://djng5061m3yjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyw14"]
-size = Vector2(14.6667, 20)
+size = Vector2(15.1111, 19.7222)
 
 [node name="Box" type="RigidBody2D" groups=["Movable"]]
 collision_layer = 2
