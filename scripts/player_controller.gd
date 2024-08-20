@@ -61,10 +61,14 @@ func _physics_process(delta):
 			# Check if object is Movable, and is not above the maximum pushing velocity
 			#HACK Pushing Velocity current applied via const from this class
 			if collision_obj.is_in_group("Movable") and abs(collision_obj.get_linear_velocity().x) < SPEED * 0.75:
-				#if animated_sprite_2d.animation != "push":
-					#animated_sprite_2d.play("push")
+
 				var push_force = (PUSH_FORCE * velocity.length() / SPEED) + MIN_PUSH_FORCE
-				collision_obj.apply_central_impulse(collision.get_normal() * -push_force)
+				var pushDir := Vector2(velocity.x, 0).normalized()
+				# print(pushDir)
+				collision_obj.apply_central_impulse(pushDir * push_force)
+				#if animated_sprite_2d.animation != "push" and pushDir != Vector2.ZERO:
+				#	print("about to push")
+				#	animated_sprite_2d.play("push")
 
 	var was_on_floor: bool = is_on_floor()
 	move_and_slide()

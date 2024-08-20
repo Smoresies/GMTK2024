@@ -6,7 +6,7 @@ extends Area2D
 
 func _on_body_entered(body):
 		#print(body)
-	if body.get_meta("Player"):
+	if body is Player:
 		# var vectorTo: Vector2 = (position.direction_to(body.position) + transform.y).normalized()
 		#print(transform.y)
 		# Transform.y WORKS, but player movement is current resetting horizontal to 0
