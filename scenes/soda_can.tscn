@@ -668,6 +668,24 @@ position = Vector2(0, -5)
 scale = Vector2(4, 12)
 shape = SubResource("RectangleShape2D_usu3l")
 
+[node name="StaticBody2D21" type="StaticBody2D" parent="Environments"]
+position = Vector2(1205, 639)
+rotation = 0.174533
+scale = Vector2(0.3, 0.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environments/StaticBody2D21"]
+position = Vector2(2, -6)
+scale = Vector2(0.5, 0.3)
+texture = ExtResource("8_xv21s")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(16, 1024, 496, 136)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environments/StaticBody2D21"]
+position = Vector2(0, -5)
+scale = Vector2(4, 12)
+shape = SubResource("RectangleShape2D_usu3l")
+
 [node name="StaticBody2D7" type="StaticBody2D" parent="Environments"]
 position = Vector2(164, 398)
 rotation = 1.5708

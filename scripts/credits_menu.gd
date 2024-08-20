@@ -5,7 +5,7 @@ extends VBoxContainer
 @onready var select_sfx := $select
 
 func _process(delta):
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed("select"):
 		select_sfx.play()
 		selected = true
 		await select_sfx.finished

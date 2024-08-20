@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://jkf1pq4iqk1p" path="res://sounds/Title SFX/sfx_ui_mainmenu_change-focus.wav" id="10_7osof"]
 [ext_resource type="AudioStream" uid="uid://bcyhww4mywnql" path="res://sounds/Title SFX/amb_mainmenu_loop.wav" id="11_ekh80"]
 [ext_resource type="AudioStream" uid="uid://blbft8w3s666y" path="res://sounds/Title SFX/sfx_ui_mainmenu_button-press.wav" id="11_mtxca"]
-[ext_resource type="Texture2D" path="res://art/UIs & Icons/buttons & windows/lil_logo.png" id="12_ity8i"]
+[ext_resource type="Texture2D" uid="uid://xui1aa5df4t8" path="res://art/UIs & Icons/buttons & windows/lil_logo.png" id="12_ity8i"]
 [ext_resource type="Texture2D" uid="uid://cfthiy5rvq1wn" path="res://art/UIs & Icons/buttons & windows/gmtk2024-logo.png" id="14_5uxpq"]
 
 [node name="Control" type="Control"]
