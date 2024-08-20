@@ -1,22 +1,22 @@
 [gd_scene load_steps=36 format=3 uid="uid://brw58yhgv2mib"]
 
 [ext_resource type="PackedScene" uid="uid://meklyxgioiqv" path="res://scenes/player.tscn" id="1_8ivvu"]
-[ext_resource type="Texture2D" uid="uid://bifjmnkbh17ax" path="res://art/background-1.png" id="1_l5yi8"]
+[ext_resource type="Texture2D" uid="uid://d1kjt81nspu2a" path="res://art/background-1.png" id="1_l5yi8"]
 [ext_resource type="Script" path="res://scripts/game_manager_training.gd" id="1_x3rh3"]
-[ext_resource type="Texture2D" uid="uid://cgvbl3mtjorm6" path="res://art/background-3.png" id="2_7b333"]
+[ext_resource type="Texture2D" uid="uid://be8r7fvf6gdho" path="res://art/background-3.png" id="2_7b333"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_c786m"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_5l58j"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_tcb8x"]
-[ext_resource type="Texture2D" uid="uid://c85l760uy6bsh" path="res://art/kitchen_platforms.png" id="8_xv21s"]
+[ext_resource type="Texture2D" uid="uid://dpr1cogpdxohx" path="res://art/kitchen_platforms.png" id="8_xv21s"]
 [ext_resource type="PackedScene" uid="uid://djng5061m3yjr" path="res://scenes/box.tscn" id="9_6exjd"]
-[ext_resource type="Texture2D" uid="uid://bujlg4vwrcext" path="res://art/Kitchen Items/HouseholdItems_HoledSpoon.png" id="9_oxw5a"]
+[ext_resource type="Texture2D" uid="uid://bfrx220l4vdjn" path="res://art/Kitchen Items/HouseholdItems_HoledSpoon.png" id="9_oxw5a"]
 [ext_resource type="PackedScene" uid="uid://bm5cjulwwe6f2" path="res://scenes/spring.tscn" id="10_8kev8"]
-[ext_resource type="Texture2D" uid="uid://dqc5mfgsmsy1u" path="res://art/Kitchen Items/HouseholdItems_CoffeePotGreen.png" id="10_ul6sv"]
-[ext_resource type="Texture2D" uid="uid://paaa8tto3uqq" path="res://art/Kitchen_items.png" id="11_0480l"]
-[ext_resource type="Texture2D" uid="uid://ben4bskepogr4" path="res://art/Kitchen Items/HouseholdItems_KnifeGold.png" id="11_k2bny"]
+[ext_resource type="Texture2D" uid="uid://bxfhk0llykkrs" path="res://art/Kitchen Items/HouseholdItems_CoffeePotGreen.png" id="10_ul6sv"]
+[ext_resource type="Texture2D" uid="uid://bqead10dwd5f8" path="res://art/Kitchen_items.png" id="11_0480l"]
+[ext_resource type="Texture2D" uid="uid://v672lsr7kyhu" path="res://art/Kitchen Items/HouseholdItems_KnifeGold.png" id="11_k2bny"]
 [ext_resource type="PackedScene" uid="uid://2x162fr5h5a4" path="res://scenes/checkpoint.tscn" id="15_hxbyt"]
-[ext_resource type="Texture2D" uid="uid://ck7kjfiamo7ne" path="res://art/Kitchen Items/HouseholdItems_ChoppingBoardDark.png" id="15_hxyr8"]
-[ext_resource type="Texture2D" uid="uid://hbu6gtxnsijw" path="res://art/Kitchen Items/HouseholdItems_Ladle.png" id="16_aooj4"]
+[ext_resource type="Texture2D" uid="uid://13lyfiia7v7o" path="res://art/Kitchen Items/HouseholdItems_ChoppingBoardDark.png" id="15_hxyr8"]
+[ext_resource type="Texture2D" uid="uid://cspybhuym7bva" path="res://art/Kitchen Items/HouseholdItems_Ladle.png" id="16_aooj4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5gll5"]
 
@@ -186,20 +186,18 @@ limit_right = 2300
 limit_bottom = 650
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(329.143, 464.857)
-zoom = Vector2(1.75, 1.75)
+position = Vector2(1741, 332)
 limit_left = 0
-limit_top = 0
-limit_right = 2300
+limit_top = -1000000
 limit_bottom = 650
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("4_tcb8x")
 
 [node name="StartingCam" type="Node2D" parent="."]
-position = Vector2(1152, 2)
+position = Vector2(1741, 332)
 script = ExtResource("2_c786m")
-zoom = Vector2(0.5, 0.5)
+priority = 2
 tween_resource = SubResource("Resource_oo6le")
 draw_limits = true
 limit_left = 0
@@ -833,6 +831,15 @@ position = Vector2(1979, 481)
 
 [node name="Checkpoint4" parent="." instance=ExtResource("15_hxbyt")]
 position = Vector2(1581, 634)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 11.0
+offset_top = 438.0
+offset_right = 200.0
+offset_bottom = 461.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mushrooms are Springy!"
 
 [editable path="Interactables/Box"]
 [editable path="Interactables/Box3"]

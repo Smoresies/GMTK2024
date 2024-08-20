@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cbopa77vofgra" path="res://art/Animations/walk/walk-4.png" id="27_n2gok"]
 [ext_resource type="Texture2D" uid="uid://dohnla3cb2r3j" path="res://art/Cloud Test.png" id="30_bu42b"]
 
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dafoi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_otvcs"]
