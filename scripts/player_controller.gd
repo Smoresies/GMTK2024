@@ -24,8 +24,8 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		print(animated_sprite_2d.animation)
-		if !animated_sprite_2d.is_playing() and animated_sprite_2d.animation != "midair":
+		#print(animated_sprite_2d.animation)
+		if (!animated_sprite_2d.is_playing() or animated_sprite_2d.animation == "idle") and animated_sprite_2d.animation != "midair":
 			animated_sprite_2d.play(("midair"))
 
 
@@ -51,17 +51,20 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		animated_sprite_2d.play("jump_start")
 	
-	# Pushing crates
-	for i in get_slide_collision_count():
-		
-		var collision = get_slide_collision(i) # Used to get collider, and then used to apply push
-		var collision_obj = collision.get_collider() # Used to check to see if push is valid
-		
-		# Check if object is Movable, and is not above the maximum pushing velocity
-		#HACK Pushing Velocity current applied via const from this class
-		if collision_obj.is_in_group("Movable") and abs(collision_obj.get_linear_velocity().x) < SPEED * 0.75:
-			var push_force = (PUSH_FORCE * velocity.length() / SPEED) + MIN_PUSH_FORCE
-			collision_obj.apply_central_impulse(collision.get_normal() * -push_force)
+	# Pushing crates, only done while on ground
+	if is_on_floor():
+		for i in get_slide_collision_count():
+			
+			var collision = get_slide_collision(i) # Used to get collider, and then used to apply push
+			var collision_obj = collision.get_collider() # Used to check to see if push is valid
+			
+			# Check if object is Movable, and is not above the maximum pushing velocity
+			#HACK Pushing Velocity current applied via const from this class
+			if collision_obj.is_in_group("Movable") and abs(collision_obj.get_linear_velocity().x) < SPEED * 0.75:
+				#if animated_sprite_2d.animation != "push":
+					#animated_sprite_2d.play("push")
+				var push_force = (PUSH_FORCE * velocity.length() / SPEED) + MIN_PUSH_FORCE
+				collision_obj.apply_central_impulse(collision.get_normal() * -push_force)
 
 	var was_on_floor: bool = is_on_floor()
 	move_and_slide()

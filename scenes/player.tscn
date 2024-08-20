@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://meklyxgioiqv"]
+[gd_scene load_steps=32 format=3 uid="uid://meklyxgioiqv"]
 
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_xbml8"]
 [ext_resource type="Texture2D" uid="uid://mctpujjovs5u" path="res://art/Animations/idle/idle-1.png" id="2_m000i"]
@@ -20,9 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://bo5nxmqjwvp7g" path="res://art/Animations/fall/fall-3.png" id="20_bhaa3"]
 [ext_resource type="Texture2D" uid="uid://c4aabs2vuqcmj" path="res://art/Animations/fall/fall-4.png" id="21_4ug3t"]
 [ext_resource type="Texture2D" uid="uid://g127fx66oo7" path="res://art/Animations/fall/fall-5.png" id="22_0dc5a"]
+[ext_resource type="Texture2D" uid="uid://c78qy4ptvb7l7" path="res://art/Animations/push/push-1.png" id="22_y6ugr"]
 [ext_resource type="Texture2D" uid="uid://ehxwu2yayaoi" path="res://art/Animations/fall/fall-6.png" id="23_25lb1"]
+[ext_resource type="Texture2D" uid="uid://d7pa2oyyo6wc" path="res://art/Animations/push/push-2.png" id="23_urre2"]
+[ext_resource type="Texture2D" uid="uid://eegbr4nxags8" path="res://art/Animations/push/push-3.png" id="24_80b31"]
 [ext_resource type="Texture2D" uid="uid://dislijikg8npy" path="res://art/Animations/walk/walk-1.png" id="24_btt3r"]
 [ext_resource type="Texture2D" uid="uid://5rs7e3yx44fj" path="res://art/Animations/walk/walk-2.png" id="25_cxxj4"]
+[ext_resource type="Texture2D" uid="uid://b1utetpry3lo1" path="res://art/Animations/push/push-4.png" id="25_iwxsv"]
 [ext_resource type="Texture2D" uid="uid://bvqpiyc2jytsb" path="res://art/Animations/walk/walk-3.png" id="26_bppxh"]
 [ext_resource type="Texture2D" uid="uid://blc2lrw7cm1rf" path="res://art/Animations/walk/walk-4.png" id="27_n2gok"]
 
@@ -112,6 +116,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("22_y6ugr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_urre2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_80b31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_iwxsv")
+}],
+"loop": true,
+"name": &"push",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("24_btt3r")
 }, {
 "duration": 1.0,
@@ -144,7 +165,6 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.018, 0.018)
 sprite_frames = SubResource("SpriteFrames_otvcs")
-animation = &"jump_start"
+animation = &"push"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
+frame_progress = 0.745728
