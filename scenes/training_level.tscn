@@ -30,7 +30,7 @@
 
 [sub_resource type="Resource" id="Resource_hf2bs"]
 script = ExtResource("3_x3fva")
-duration = 3.0
+duration = 1.5
 transition = 2
 ease = 0
 
@@ -112,8 +112,7 @@ limit_right = 2300
 limit_bottom = 650
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1152, 2)
-zoom = Vector2(0.5, 0.5)
+position = Vector2(1815, 335)
 limit_left = 0
 limit_top = -1000000
 limit_bottom = 650
@@ -122,10 +121,9 @@ limit_bottom = 650
 script = ExtResource("4_ruocm")
 
 [node name="StartingCam" type="Node2D" parent="."]
-position = Vector2(1152, 2)
+position = Vector2(1815, 335)
 script = ExtResource("2_423y0")
 priority = 99
-zoom = Vector2(0.5, 0.5)
 tween_resource = SubResource("Resource_cri3v")
 draw_limits = true
 limit_left = 0
