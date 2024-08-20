@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		#print(animated_sprite_2d.animation)
-		if !animated_sprite_2d.is_playing() and animated_sprite_2d.animation != "midair":
+		if (!animated_sprite_2d.is_playing() or animated_sprite_2d.animation == "idle") and animated_sprite_2d.animation != "midair":
 			animated_sprite_2d.play(("midair"))
 
 
