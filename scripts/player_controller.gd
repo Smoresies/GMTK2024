@@ -10,6 +10,7 @@ const MIN_PUSH_FORCE = 10
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var checkpoint: Vector2
+var paused: bool = false
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var coyote_timer = %CoyoteTimer
@@ -17,10 +18,10 @@ var checkpoint: Vector2
 func _ready():
 	set_meta("Player", self)
 	checkpoint = position
+	pause(6)
 
 
 func _physics_process(delta):
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -28,7 +29,9 @@ func _physics_process(delta):
 		if (!animated_sprite_2d.is_playing() or animated_sprite_2d.animation == "idle") and animated_sprite_2d.animation != "midair":
 			animated_sprite_2d.play(("midair"))
 
-
+	if paused == true:
+		move_and_slide()
+		return
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -78,9 +81,34 @@ func _physics_process(delta):
 		animated_sprite_2d.play("landing")
 
 func _input(event):
-	if event.is_action_pressed("restart"):
+	if event.is_action_pressed("restart") and !paused:
 		goToCheckpoint()
 		#TODO Set this to an animation controller, have the player go back AFTER they have done animation
 
 func goToCheckpoint():
 	position = checkpoint
+
+func pause(wait_time: int):
+	paused = true
+	await get_tree().create_timer(wait_time).timeout
+	paused = false
+
+func leave(theme: int):
+		pause(10)
+		
+		animated_sprite_2d.play("walk")
+		
+		await shrink()
+		
+		if (theme != 0):
+			AudioManager.change_tune(theme)
+		
+		get_tree().change_scene_to_file("res://scenes/soda_can.tscn")
+
+func shrink():
+	var grow_time = 0
+	while (grow_time < 2):
+		await get_tree().create_timer(0.1).timeout
+		scale.x -= .5
+		scale.y -= .5
+		grow_time += .1

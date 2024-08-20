@@ -15,6 +15,7 @@ func change_tune(tune: int):
 		track_1.stop()
 		track_2.play()
 	elif (tune == 3):
+		track_1.stop()
 		track_2.stop()
 		track_3.play()
 	pass # Replace with function body.
