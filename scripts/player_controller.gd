@@ -21,7 +21,7 @@ func _ready():
 	checkpoint = position
 	animated_sprite_2d.visible = false
 	paused = true
-	await get_tree().create_timer(6.5).timeout
+	await get_tree().create_timer(5).timeout
 	smoke.emitting = true
 	animated_sprite_2d.visible = true
 	await smoke.finished

@@ -19,11 +19,6 @@ func _process(delta):
 	#Awaits the selection input
 	if Input.is_action_just_pressed("select"):
 		if current_selection == 1:
-			#Temp Timer system
-			var timer : int = 0
-			while (timer < 300):
-				black_screen.modulate.a += 1 / 300
-				timer += 1
 			select_sfx.play()
 			selected = true
 			await select_sfx.finished
