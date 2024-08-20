@@ -834,6 +834,15 @@ position = Vector2(1979, 481)
 [node name="Checkpoint4" parent="." instance=ExtResource("15_hxbyt")]
 position = Vector2(1581, 634)
 
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 11.0
+offset_top = 438.0
+offset_right = 200.0
+offset_bottom = 461.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mushrooms are Springy!"
+
 [editable path="Interactables/Box"]
 [editable path="Interactables/Box3"]
 [editable path="Interactables/Box4"]

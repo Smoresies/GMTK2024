@@ -319,6 +319,42 @@ shape = SubResource("RectangleShape2D_ogv7d")
 [node name="Checkpoint" parent="." instance=ExtResource("7_qr3hh")]
 position = Vector2(1415, 559)
 
+[node name="Tutorial Text" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Tutorial Text"]
+texture_filter = 1
+offset_left = 240.0
+offset_top = 538.0
+offset_right = 380.0
+offset_bottom = 587.0
+text = "WASD/Arrow Keys
+To Move"
+
+[node name="Label2" type="Label" parent="Tutorial Text"]
+texture_filter = 1
+offset_left = 656.0
+offset_top = 570.0
+offset_right = 816.0
+offset_bottom = 619.0
+text = "W/Up/Space to Jump"
+
+[node name="Label3" type="Label" parent="Tutorial Text"]
+texture_filter = 1
+offset_left = 1118.0
+offset_top = 529.0
+offset_right = 1346.0
+offset_bottom = 578.0
+text = "Some objects can be moved..."
+
+[node name="Label4" type="Label" parent="Tutorial Text"]
+texture_filter = 1
+offset_left = 1633.0
+offset_top = 485.0
+offset_right = 1861.0
+offset_bottom = 534.0
+text = "R to reset...
+Not everything changes..."
+
 [connection signal="body_entered" from="Environment/Cave" to="Environment/Cave" method="_on_body_entered"]
 
 [editable path="Boxes/Box"]
