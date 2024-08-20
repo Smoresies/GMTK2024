@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwvmhbfqdjpnt"]
+
+[ext_resource type="Script" path="res://scripts/level_end.gd" id="1_ic36o"]
+[ext_resource type="Texture2D" uid="uid://bvyjmcprihoja" path="res://art/Cave.png" id="3_rkfqi"]
+
+[sub_resource type="PackedScene" id="PackedScene_sv82f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaoca"]
+size = Vector2(45, 72)
+
+[node name="Cave" type="Area2D"]
+position = Vector2(2220, 428)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_ic36o")
+theme_change = 3
+newScene = SubResource("PackedScene_sv82f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(53, -3)
+scale = Vector2(0.238693, 0.341584)
+texture = ExtResource("3_rkfqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(54, -1)
+shape = SubResource("RectangleShape2D_jaoca")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
